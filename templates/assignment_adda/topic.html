@@ -1,0 +1,40 @@
+{% extends "assignment_adda/base.html" %} {% load static %}
+
+{% block header %} {% load static %}
+<h2>{{topic}}</h2>
+{% endblock header %} {% block content %}
+<div class="panel-group">
+
+    {% for entry in entries %}
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <div class="left" style="float: left;">
+                Answered By: {% if entry.owner == request.user %}Me{% else %}{{entry.owner}} </div>{% endif %} {% if entry.owner == request.user %}
+            <a href="{% url 'edit_entry' entry.id %}"><img src="{% static 'assignment_adda/images/edit.png' %}" alt="Edit Entry" width="16" height="16"></a>
+        </div>
+        {% endif %}
+        <div class="right" style="float: right;">
+            {{entry.date_added|date:'M d, Y H:i'}}
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    <div class="panel-body">
+        {{entry.text|urlize}}
+{% if entry.img.url != '/media/pics/default.jpg' %}<a href="{{entry.img.url}}"><img src="{% static 'assignment_adda/images/attached.png' %}" alt="Attached Resource" width="20" height="20"></a>{% endif %}
+        
+       
+    </div>
+</div>
+{% empty %}
+<div class="panel panel-primary">
+    <div class="panel-body">No Answer</div>
+</div>
+{% endfor %}
+
+</div>
+
+<a href="{% url 'new_entry' topic.id %}">Add You Answer</a>
+<script>
+$('.panel-body a').click(function(e){e.preventDefault();window.open(this.href);});
+</script>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "assignment_adda/base.html" %}
+{% block content %}
+<p>
+    <a href="{% url 'subjects' %}">Subject</a>: {{topic}}
+</p>
+
+<input class="form-control" id="myInput" type="text" placeholder="Search..">
+
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th><h2>Questions</h2></th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+
+        {% for topic in topicss %}
+        <tr>
+            <td>
+                <a href="{% url 'topic' topic.id %}">{{topic.text}}</a> Asked by {% if topic.owner == request.user %}Me{% else %}{{topic.owner}}
+            </td>
+        </tr>
+        {% endif %} {% empty %}
+        <tr>
+            <td> No Topics</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+<a href="{% url 'new_topic' topic.id %}">Add A New Quaetion</a>
+<script>
+    $(document).ready(function() {
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+{% endblock content %}
