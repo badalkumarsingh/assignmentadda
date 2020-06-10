@@ -3,6 +3,12 @@
 {% block header %} {% load static %}
 <h2>{{topic}}</h2>
 {% endblock header %} {% block content %}
+<style>
+.panel-body::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+</style>
 <div class="panel-group">
 
     {% for entry in entries %}
@@ -18,7 +24,7 @@
         </div>
         <div style="clear: both;"></div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="overflow: auto;">
         {{entry.text|urlize}}
 {% if entry.img.url != '/media/pics/default.jpg' %}<a href="{{entry.img.url}}"><img src="{% static 'assignment_adda/images/attached.png' %}" alt="Attached Resource" width="20" height="20"></a>{% endif %}
         
