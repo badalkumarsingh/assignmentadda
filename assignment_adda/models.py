@@ -25,7 +25,7 @@ class Entry(models.Model):
     #userrs
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     #images
-    img = models.ImageField(upload_to='pics', default="pics/default.jpg")
+    img = models.ImageField(upload_to='pics', blank=True)
     #------
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)

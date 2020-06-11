@@ -27,7 +27,7 @@
     </div>
     <div class="panel-body" style="overflow: auto;">
         {{entry.text|urlize}}
-{% if entry.img.url != '/media/pics/default.jpg' %}<a href="{{entry.img.url}}"><img src="{% static 'assignment_adda/images/attached.png' %}" alt="Attached Resource" width="20" height="20"></a>{% endif %}
+{% if entry.img.url is not null %}<a href="{{entry.img.url}}"><img src="{% static 'assignment_adda/images/attached.png' %}" alt="Attached Resource" width="20" height="20"></a>{% endif %}
         
        
     </div>
