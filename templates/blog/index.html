@@ -13,7 +13,7 @@
 {% for blogs in blog %}
 <p>
     <li class="plus">
-        <a href="{% url 'blog' %}{{blogs.id}}">{{blogs.title}}</a></li>
+        <a href="{% url 'blog' %}{{blogs.title}}">{{blogs.title}}</a></li>
     {{blogs.date_added}}
 </p>
 {% endfor %} {% endblock content %}

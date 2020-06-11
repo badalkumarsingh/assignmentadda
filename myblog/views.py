@@ -6,7 +6,7 @@ def blog(request):
     context = {'blog': blog}
     return render(request,"blog/index.html", context)
 
-def read(request, blog_id):
-    blog = Myblog.objects.get(id=blog_id)
+def read(request, blog_title):
+    blog = Myblog.objects.get(title=blog_title)
     context = {'blog':blog}
     return render(request, 'blog/read.html', context)
