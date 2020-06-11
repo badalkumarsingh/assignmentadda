@@ -1,11 +1,12 @@
 {% extends "assignment_adda/base.html" %}
 {% load bootstrap3 %}
+{% load crispy_forms_tags %}
 {% block content %}
 <p>
     Add a new question: <a href="{% url 'topics' subject.id %}">{{subject}}</a>
 </p>
 <form action="{% url 'new_topic' subject.id %}" method="POST" class="form">
-    {% csrf_token %} {% bootstrap_form form %}
+    {% csrf_token %} {{ form|crispy }}
     {% buttons %}
     <button name="Submit" class="btn btn-primary">Add New Question</button>
     {% endbuttons %}

@@ -1,5 +1,41 @@
-{% extends "blog/base.html" %}{% load static %} {% block content %}
+{% extends "blog/base.html" %}{% load static %}{% load bootstrap3 %} {% load crispy_forms_tags %} {% block content %}
 
-<h2>{{blog.title}}</h2>
-<p>{{blog.content}}</p2>
+
+<div class="card-body" style="margin-bottom: 40px;">
+    <h1>{{ blog.title }}</h1>
+    <p class="card-text ">{{ blog.content | safe }}</p>
+</div>
+
+<div class="card-body">
+    <!-- comments -->
+    <h4>{{ comments.count }} comments</h4>
+
+    {% for comment in comments %}
+    <div class="comments" style="padding: 10px;">
+        <p class="font-weight-bold">
+            {{ comment.name }}
+            <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+        </p>
+        {{ comment.body | linebreaks }}
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="card-body">
+    {% if new_comment %}
+    <div class="alert alert-success" role="alert">
+        Your comment is awaiting moderation
+    </div>
+    {% else %}
+    <h4>Add a comment</h4>
+    <form method="post">
+        {{ comment_form | crispy }} {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% endif %}
+</div>
+
 {% endblock content %}
