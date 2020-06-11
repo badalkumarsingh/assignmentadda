@@ -44,7 +44,7 @@
                     <li>{% if user.is_authenticated %}<a><i class="fa fa-user"></i> {{user.username}}</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a>{% else %}<a href="{% url 'login' %}?next={{request.path}}">Login</a></li>
                     <li><a href="{% url 'register' %}?next={{request.path}}">Register</a></li>{% endif %}
-                    <li><a href="">Blogs</a></li>
+                    <li><a href="{% url 'blog' %}">Blogs</a></li>
                 </ul>
 
             </div>

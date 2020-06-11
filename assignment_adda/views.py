@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -36,7 +36,7 @@ def new_topic(request, subject_id):
             new_topic.subject = subject
             new_topic.owner = request.user
             new_topic.save()
-            return HttpResponseRedirect(reverse('topics'), args=[subject_id])
+            return redirect('topics', topics_id=subject.id)
     context = {'subject': subject, 'form': form}
     return render(request,'assignment_adda/new_topic.html', context)
 @login_required

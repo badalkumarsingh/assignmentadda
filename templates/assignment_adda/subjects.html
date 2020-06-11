@@ -1,4 +1,4 @@
-{% extends 'assignment_adda/base.html' %} {% block content %}
+{% extends 'assignment_adda/base.html' %} {% load my_tags %} {% block content %}
 <style>
     .bg-c-1 {
         background: linear-gradient(45deg, #4099ff, #73b4ff);
@@ -67,9 +67,16 @@
 <div class="row">
 
     {% for subject in subjects %}
-    <!-- <li><a href="{% url 'subjects' %}/{{subject.id}}">{{subject}}</a></li> -->
     <div class="col-md-4 col-sm-6 col-xl-1">
-        <div class="card bg-c-{{forloop.counter}} order-card">
+    {% if forloop.counter|modulo:4 == 0 %}
+        <div class="card bg-c-4 order-card">
+    {% elif forloop.counter|modulo:3 == 0 %}
+        <div class="card bg-c-3 order-card">
+    {% elif forloop.counter|modulo:2 == 0 %}
+        <div class="card bg-c-2 order-card">
+    {% else %}
+        <div class="card bg-c-1 order-card">
+    {% endif %}         
             <a href="{% url 'subjects' %}/{{subject.id}}">
                 <div class="card-block">
                     <h4 class="m-b-20">{{subject}}</h4>

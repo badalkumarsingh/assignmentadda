@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bootstrap3',
     'assignment_adda',
+    'myblog',
     'users',
     'django.contrib.admin',
     'django.contrib.auth',

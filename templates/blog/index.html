@@ -1,0 +1,6 @@
+{% for blogs in blog %}
+<p>{{blogs.id}}
+<a href="{% url 'blog' %}{{blogs.id}}">{{blogs.title}}</a>
+{{blogs.date_added}}
+</p>
+{% endfor %}
