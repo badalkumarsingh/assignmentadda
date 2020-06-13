@@ -1,4 +1,5 @@
 {% extends 'assignment_adda/base.html' %}
+{% load widget_tweaks %}
 {% block content %}
 <style>
 .alerts {
@@ -46,13 +47,13 @@
                     {% endif %}
                     </div>
                     <div class="dragArea row">
-                        <div class="col-md-12 align-center form-group" data-for="name">
+                        <div class="col-md-12 form-group" data-for="name">
                             <label for="name-form1-27" class="form-control-label mbr-fonts-style display-7">Username</label>
-                            <br>{{form.username}}
+                            <br>{{form.username|add_class:"form-control display-7"}}
                         </div>
-                        <div class="col-md-12 align-center form-group" data-for="password">
+                        <div class="col-md-12 form-group" data-for="password">
                             <label for="password-form1-27" class="form-control-label mbr-fonts-style display-7">Password</label>
-                            <br>{{form.password}}
+                            <br>{{form.password|add_class:"form-control display-7"}}
                         </div>
                         
                         

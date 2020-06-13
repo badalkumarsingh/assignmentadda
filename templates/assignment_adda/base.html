@@ -23,8 +23,20 @@
     <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
     <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css' %}">
-
-
+    <style>
+.form-control{
+border: 1px solid #000000;
+}
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgba(24, 124, 195, 0.47);
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
+    </style>
 
 </head>
 
@@ -82,7 +94,7 @@
     </section>
 
     {% block content %} {% endblock content %}
-    <section once="footers" class="cid-s1Hy1lkquo" id="footer6-2r">
+    <section once="footers" class="cid-s1Hy1lkquo footer" id="footer6-2r">
         <div class="container">
             <div class="media-container-row align-center mbr-white">
                 <div class="col-12">
