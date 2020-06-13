@@ -3,45 +3,69 @@
  {% load static %}
 
  {% block content %}
- <h2>{{topic}}</h2>
-<style>
-.panel-body::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
-}
-</style>
-<div class="panel-group">
 
-    {% for entry in entries %}
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-            <div class="left" style="float: left;">
-                Answered By: {% if entry.owner == request.user %}Me{% else %}{{entry.owner}} </div>{% endif %} {% if entry.owner == request.user %}
-            <a href="{% url 'edit_entry' entry.id %}"><img src="{% static 'assignment_adda/images/edit.png' %}" alt="Edit Entry" width="16" height="16"></a>
-        </div>
-        {% endif %}
-        <div class="right" style="float: right;">
-            {{entry.date_added|date:'M d, Y h:i'}}
-        </div>
-        <div style="clear: both;"></div>
+
+
+
+
+
+
+
+
+
+<section class="header1 cid-s1HcvNFbbs mbr-parallax-background" id="header16-1q">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(35, 35, 35);">
     </div>
-    <div class="panel-body" style="overflow: auto;">
-        {{entry.text|urlize}}
-{% if entry.img.url is not null %}<a href="{{entry.img.url}}"><img src="{% static 'assignment_adda/images/attached.png' %}" alt="Attached Resource" width="20" height="20"></a>{% endif %}
-        
-       
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 align-center">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">{{topic}}</h1>
+                
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">
+                    Choose from various subjects and help yourself for your assignment</p>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-primary display-4" href=""><span class="mbri-arrow-prev mbr-iconfont mbr-iconfont-btn"></span>VIEW QUESTIONS Not WRK</a> <a class="btn btn-md btn-secondary display-4" href="{% url 'new_entry' topic.id %}"><span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>ADD ANSWER</a></div>
+            </div>
+        </div>
     </div>
-</div>
+
+</section>
+
+{% for entry in entries %}
+<section class="mbr-section info1 cid-s1HdeduNrd" id="info1-1r">
+<div class="container">
+        <div class="row justify-content-center content-row">
+            <div class="media-container-column title col-12 col-lg-7 col-md-6">
+                <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-5 links">
+                {{entry.text|urlize|linebreaks}}{% if entry.img.url is not null %}<a href="{{entry.img.url}}"><img src="{% static 'assignment_adda/images/attached.png' %}" alt="Attached Resource" width="20" height="20"></a>{% endif %}</h3>
+                <h2 class="align-left mbr-bold mbr-fonts-style display-7">
+                    Answerd {% if entry.owner == request.user %}Me{% else %}{{entry.owner}}{% endif %} | {{entry.date_added|date:'M d, Y h:i'}}</h2>
+            </div>
+            
+            <div class="media-container-column col-12 col-lg-3 col-md-4">
+            {% if entry.owner == request.user %}
+                <div class="mbr-section-btn align-right py-4"><a class="btn btn-success-outline display-4" href="{% url 'edit_entry' entry.id %}"><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn"></span>EDIT ANSWER</a></div>
+                
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
 {% empty %}
-<div class="panel panel-primary">
-    <div class="panel-body">No Answer</div>
-</div>
+<section class="mbr-section info1 cid-s1HdCUjzcX" id="info1-1s">
+<div class="container">
+        <div class="row justify-content-center content-row">
+            <div class="media-container-column title col-12 col-lg-7 col-md-6">
+                <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-5 links">Answer set empty</h3>
+            </div>
+            <div class="media-container-column col-12 col-lg-3 col-md-4">
+                <div class="mbr-section-btn align-right py-4"><a class="btn btn-primary display-4" href="{% url 'new_entry' topic.id %}"><span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>ADD ANSWER</a></div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endfor %}
-
-</div>
-
-<a href="{% url 'new_entry' topic.id %}">Add You Answer</a>
-<script>
-$('.panel-body a').click(function(e){e.preventDefault();window.open(this.href);});
-</script>
 {% endblock content %}

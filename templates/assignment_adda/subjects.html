@@ -1,106 +1,60 @@
-{% extends 'assignment_adda/base.html' %} {% load my_tags %} {% block content %}
-<style>
-    .bg-c-1 {
-        background: linear-gradient(45deg, #4099ff, #73b4ff);
-    }
-    
-    .bg-c-2 {
-        background: linear-gradient(45deg, #2ed8b6, #59e0c5);
-    }
-    
-    .bg-c-3 {
-        background: linear-gradient(45deg, #FFB64D, #ffcb80);
-    }
-    
-    .bg-c-4 {
-        background: linear-gradient(45deg, #FF5370, #ff869a);
-    }
-    
-    .card {
-        border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
-        box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
-        border: none;
-        margin-bottom: 30px;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-    }
-    
-    .card a {
-        color: #fff;
-    }
-    
-    .card a:hover {
-        text-decoration: none;
-    }
-    
-    .card .card-block {
-        padding: 25px;
-    }
-    
-    .order-card i {
-        font-size: 26px;
-    }
-    
-    .f-left {
-        float: left;
-    }
-    
-    .f-right {
-        float: right;
-    }
-    
-    @media (min-width: 992px) {
-        .col-md-4 {
-            width: 25%;
-        }
-    }
-    
-    @media (min-width: 1500px) {
-        .col-md-4 {
-            width: 50%;
-        }
-    }
-</style>
-<h2>Subjects:</h2>
-{% comment %} @for $i from 1 through 40 { .bg-c-#{$i} { background: linear-gradient(45deg, hsl(328, 100%, 50%), hsl($i * 70, 100%, 50%)); } } {% endcomment %}
-<div class="row">
+{% extends 'assignment_adda/base.html' %} {% load static %} {% load my_tags %} {% block content %}
+<section class="header1 cid-s1H23DT3HC mbr-parallax-background" id="header16-19">
 
-    {% for subject in subjects %}
-    <div class="col-md-4 col-sm-6 col-xl-1">
-    {% if forloop.counter|modulo:4 == 0 %}
-        <div class="card bg-c-4 order-card">
-    {% elif forloop.counter|modulo:3 == 0 %}
-        <div class="card bg-c-3 order-card">
-    {% elif forloop.counter|modulo:2 == 0 %}
-        <div class="card bg-c-2 order-card">
-    {% else %}
-        <div class="card bg-c-1 order-card">
-    {% endif %}         
-            <a href="{% url 'subjects' %}/{{subject.id}}">
-                <div class="card-block">
-                    <h4 class="m-b-20">{{subject}}</h4>
-                    <h2 class="text-right"><i class="fa fa-book f-right"></i></h2>
-                    <p class="m-b-0">{{subject.desc}}</p>
-                </div>
-            </a>
-        </div>
+
+
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(35, 35, 35);">
     </div>
 
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 align-center">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">SUBJECTS</h1>
 
-    {% empty %}
-    <div class="col-md-12 col-sm-12 col-xl-12">
-        <div class="card bg-c-4 order-card">
-
-            <div class="card-block">
-                <h4 class="m-b-20">No Subject Found</h4>
-                <h2 class="text-right"><i class="fa fa-book f-right"></i></h2>
-                <p class="m-b-0">Ask administrator to add some Questions</p>
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">
+                    Choose from various subjects and help yourself for your assignment</p>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-primary display-4" href="https://mobirise.co">ADD NEW SUBJECT</a></div>
             </div>
-
         </div>
     </div>
-    {% endfor %}
-</div>
 
+</section>
+
+<section class="services5 cid-s1H5koxRZ5" id="services5-1a">
+    <!---->
+
+    <!---->
+    <!--Overlay-->
+
+    <!--Container-->
+    <div class="container">
+        <div class="row">
+            <!--Titles-->
+            <div class="title pb-5 col-12">
+
+
+            </div>
+            <!--Card-1-->
+            {% for subject in subjects %}
+            <div class="card px-3 col-12">
+                <div class="card-wrapper media-container-row media-container-row">
+                    <div class="card-box">
+                        <div class="top-line pb-3">
+                            <h4 class="card-title mbr-fonts-style display-5">
+                                {{subject}}</h4>
+                            <p class="mbr-text cost mbr-fonts-style m-0 display-5">
+                                <a href="{% url 'subjects' %}/{{subject.id}}" class="mbr-text cost mbr-fonts-style m-0 display-5">Click Here</a></p>
+                        </div>
+                        <div class="bottom-line">
+                            <p class="mbr-text mbr-fonts-style m-0 b-descr display-7">
+                                {{subject.desc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %} {% endfor %}
+            <!--Card-1-->
+        </div>
+    </div>
+</section>
 {% endblock content %}

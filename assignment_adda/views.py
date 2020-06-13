@@ -9,6 +9,8 @@ from .forms import TopicForm, EntryForm
 def index(request):
     return render(request, 'assignment_adda/index.html')
 
+def about(request):
+    return render(request, 'assignment_adda/aboutus.html')
 def subjects(request):
     subjects = Subject.objects.order_by('date_added')
     context = {'subjects': subjects}

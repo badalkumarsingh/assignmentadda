@@ -1,63 +1,119 @@
-{% load bootstrap3 %}
-
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+    <!-- Site made with Mobirise Website Builder v4.12.3, https://mobirise.com -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment Adda</title>
-    {% bootstrap_css %} {% bootstrap_javascript %}
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        body::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.3, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/socicon/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+    <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css' %}">
+
+
+
 </head>
 
 <body>
-    <!--STATIC NAVBAR-->
-    <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+    <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
+
+
+
+        <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </button>
-                <a class="navbar-brand" href="#"><i class="fa fa-globe"></i></a>
+            <div class="menu-logo">
+                <div class="navbar-brand">
+                    <span class="navbar-logo">
+                        <a href="https://mobirise.com">
+                             <img src="{% static 'assets/images/mbr-146x152.png' %}" alt="Mobirise" title="" style="height: 3.8rem;">
+                        </a>
+                    </span>
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="index.html">ASSIGNMENT ADDA</a></span>
+                </div>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'index' %}">Home</a></li>
-                    <li><a href="{% url 'subjects' %}">Subjects</a></li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="{% url 'about' %}"><span class="mbri-info mbr-iconfont mbr-iconfont-btn"></span>
+                            
+                            About Us
+                        </a>
+                    </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>{% if user.is_authenticated %}<a><i class="fa fa-user"></i> {{user.username}}</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a>{% else %}<a href="{% url 'login' %}?next={{request.path}}">Login</a></li>
-                    <li><a href="{% url 'register' %}?next={{request.path}}">Register</a></li>{% endif %}
-                    <li><a href="{% url 'blog' %}">Blogs</a></li>
-                </ul>
+                <div class="navbar-buttons mbr-section-btn">
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-sm btn-primary display-4" href="">
+                        <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>{{user.username}}
+                    </a>
+                    <a class="btn btn-sm btn-secondary display-4" href="{% url 'logout' %}"><span class="mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Logout
+                    </a> {% else %}
+                    <a class="btn btn-sm btn-primary display-4" href="{% url 'login' %}">
+                        <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Login
+                    </a>
 
+                    <a class="btn btn-sm btn-primary display-4" href="{% url 'register' %}">
+                        <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Register
+                    </a>
+                    {% endif %}
+                </div>
             </div>
-            <!--/.nav-collapse -->
+        </nav>
+    </section>
+
+    {% block content %} {% endblock content %}
+    <section once="footers" class="cid-s1Hy1lkquo" id="footer6-2r">
+        <div class="container">
+            <div class="media-container-row align-center mbr-white">
+                <div class="col-12">
+                    <p class="mbr-text mb-0 mbr-fonts-style display-7">
+                        © Copyright 2020 Badal Kumar - All Rights Reserved
+                    </p>
+                </div>
+            </div>
         </div>
-    </nav>
+    </section>
 
-    <div class="container">
+    <input name="animation" type="hidden">
+    <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+    <script src="{% static 'assets/dropdown/js/nav-dropdown.js' %}"></script>
+    <script src="{% static 'assets/dropdown/js/navbar-dropdown.js' %}"></script>
+    <script src="{% static 'assets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+    <script src="{% static 'assets/parallax/jarallax.min.js' %}"></script>
+    <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+    <script src="{% static 'assets/theme/js/script.js' %}"></script>
+    <script src="{% static 'assets/viewportchecker/jquery.viewportchecker.js' %}"></script>
+    <script>
+        $('.links a').click(function(e) {
+            e.preventDefault();
+            window.open(this.href);
+        });
+    </script>
 
-
-        {% block content %} {% endblock content %}
-
-    </div>
 </body>
 
 </html>

@@ -1,14 +1,54 @@
 {% extends "assignment_adda/base.html" %}
-{% load bootstrap3 %}
-{% load crispy_forms_tags %}
 {% block content %}
-<p>
-    Add a new question: <a href="{% url 'topics' subject.id %}">{{subject}}</a>
-</p>
-<form action="{% url 'new_topic' subject.id %}" method="POST" class="form">
-    {% csrf_token %} {{ form|crispy }}
-    {% buttons %}
-    <button name="Submit" class="btn btn-primary">Add New Question</button>
-    {% endbuttons %}
-</form>
+<section class="header1 cid-s1HfrTFeX3 mbr-parallax-background" id="header16-1x">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(35, 35, 35);">
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 align-center">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1"><a href="{% url 'topics' subject.id %}" style="color:white">{{subject}}</a></h1>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mbr-section form1 cid-s1HfK6eHru" id="form1-1y">
+
+    
+
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-8">
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" data-form-type="formoid">
+                <!---Formbuilder Form -->
+                <form action="{% url 'new_topic' subject.id %}" method="POST" class="mbr-form form-with-styler" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="dragArea row">
+                        <div data-for="message" class="col-md-12 form-group">
+                            <label for="message-form1-1y" class="form-control-label mbr-fonts-style display-7">Question</label>
+                            {{form.text}}
+                        </div>
+                        <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4"><span class="mbri-rocket mbr-iconfont mbr-iconfont-btn"></span>SUBMIT QUESTION</button></div>
+                    </div>
+                </form><!---Formbuilder Form -->
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock content %}
