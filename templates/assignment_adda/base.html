@@ -3,16 +3,15 @@
 <html>
 
 <head>
-    <!-- Site made with Mobirise Website Builder v4.12.3, https://mobirise.com -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="generator" content="Mobirise v4.12.3, mobirise.com">
+    <meta content="Assignment Adda an Adda Product">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/images/mbr-146x152.png' %}" type="image/x-icon">
     <meta name="description" content="">
 
 
-    <title>Home</title>
+    <title>Assignment Adda</title>
     <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
     <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
@@ -46,11 +45,11 @@
             <div class="menu-logo">
                 <div class="navbar-brand">
                     <span class="navbar-logo">
-                        <a href="https://mobirise.com">
+                        <a href="{% url 'index' %}">
                              <img src="{% static 'assets/images/mbr-146x152.png' %}" alt="Mobirise" title="" style="height: 3.8rem;">
                         </a>
                     </span>
-                    <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="index.html">ASSIGNMENT ADDA</a></span>
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="{% url 'index' %}">ASSIGNMENT ADDA</a></span>
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
