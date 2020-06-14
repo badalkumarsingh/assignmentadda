@@ -25,7 +25,7 @@ SECRET_KEY = 'rr+#hbec6w*+$+)((g469b0rz2w)j2l=*+jfvh6gqdp8w$z1p_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://assignmentadda.herokuapp.com/']
 
 
 # Application definition
