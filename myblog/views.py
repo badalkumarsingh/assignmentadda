@@ -4,7 +4,7 @@ from .forms import CommentForm
 # Create your views here.
 def blog(request):
     blog = Myblog.objects.order_by('date_added')
-    context = {'blog': blog}
+    context = {'blogs': blog,'read_more':' Read More...'}
     return render(request,"blog/index.html", context)
 
 def read(request, blog_title):
