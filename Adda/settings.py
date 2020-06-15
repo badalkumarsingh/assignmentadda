@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rr+#hbec6w*+$+)((g469b0rz2w)j2l=*+jfvh6gqdp8w$z1p_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','assignmentadda.herokuapp.com']
 
 
 # Application definition
@@ -47,9 +47,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -57,8 +54,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'Adda.urls'
 
@@ -152,23 +147,23 @@ LOGOUT_REDIRECT_URL = '/'
 DJANGO_WYSIWYG_FLAVOR = "ckeditor"
 
 # Heroku settings
-if os.getcwd() == '/app':
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(default='postgress://localhost')
-    }
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# if os.getcwd() == '/app':
+#     import dj_database_url
+#     DATABASES = {
+#         'default': dj_database_url.config(default='postgress://localhost')
+#     }
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     
-    DEBUG = False
+#     DEBUG = False
     
-    ALLOWED_HOSTS = ['*']
+#     ALLOWED_HOSTS = ['*']
     
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    STATIC_URL = '/static/'
+#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#     STATIC_URL = '/static/'
 
-     # Add these new lines
-    STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-    )
+#      # Add these new lines
+#     STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+#     )
 
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
