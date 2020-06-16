@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rr+#hbec6w*+$+)((g469b0rz2w)j2l=*+jfvh6gqdp8w$z1p_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['assignmentadda.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -120,11 +121,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_URL = '/static/'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
@@ -135,33 +137,28 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'MEDIA')
 MEDIA_URL = '/media/'
 
-BOOTSTRAP3 = {
-    'include_jquery': True,
-}
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-DJANGO_WYSIWYG_FLAVOR = "ckeditor"
-
 # Heroku settings
-if os.getcwd() == '/app':
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(default='postgress://localhost')
-    }
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# if os.getcwd() == '/app':
+#     import dj_database_url
+#     DATABASES = {
+#         'default': dj_database_url.config(default='postgress://localhost')
+#     }
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     
-    DEBUG = True
+#     DEBUG = True
     
-    ALLOWED_HOSTS = ['*']
+#     ALLOWED_HOSTS = ['*']
     
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    STATIC_URL = '/static/'
+#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#     STATIC_URL = '/static/'
 
-     # Add these new lines
-    STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-    )
+#      # Add these new lines
+#     STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+#     )
 
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
