@@ -16,11 +16,7 @@ def subjects(request):
     context = {'subjects': subjects}
     return render(request, 'assignment_adda/subjects.html', context)
 def topics(request, topics_id):
-    try:
-        topic = Subject.objects.get(id=topics_id)
-    except Subject.DoesNotExist:
-        raise Http404
-    
+    topic = Subject.objects.get(id=topics_id)
     topicss = topic.topic_set.order_by('date_added')
     context = {'topic':topic, 'topicss':topicss}
     return render(request, 'assignment_adda/topics.html', context)
@@ -77,4 +73,6 @@ def edit_entry(request, edit_id):
             return HttpResponseRedirect(reverse('topic', args=[topic.id]))
     context = {'entry':entry, 'topic':topic, 'form': form}
     return render(request,'assignment_adda/edit_entry.html', context)
-    
+
+def error_404_view(request, *args, **kwargs):
+    return render(request, '404.html')

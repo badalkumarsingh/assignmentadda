@@ -19,6 +19,8 @@ from users.views import register
 from django.conf import settings
 from django.conf.urls.static import static
 
+handler404 = 'assignment_adda.views.error_404_view'
+
 urlpatterns = [
     path('', include('assignment_adda.urls')),
     path('users/', include('django.contrib.auth.urls')),
