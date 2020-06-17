@@ -16,7 +16,11 @@ def subjects(request):
     context = {'subjects': subjects}
     return render(request, 'assignment_adda/subjects.html', context)
 def topics(request, topics_id):
-    topic = Subject.objects.get(id=topics_id)
+    try:
+        topic = Subject.objects.get(id=topics_id)
+    except Subject.DoesNotExist:
+        raise Http404
+    
     topicss = topic.topic_set.order_by('date_added')
     context = {'topic':topic, 'topicss':topicss}
     return render(request, 'assignment_adda/topics.html', context)
