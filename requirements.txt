@@ -11,4 +11,5 @@ pytz==2020.1
 six==1.15.0
 sqlparse==0.3.1
 static3==0.7.0
-whitenoise==5.1.0
+whitenoise==5.1.0 
+psycopg2>=2.6.1
