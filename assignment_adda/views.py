@@ -76,3 +76,6 @@ def edit_entry(request, edit_id):
 
 def error_404_view(request, *args, **kwargs):
     return render(request, '404.html')
+
+def error_500_view(request, *args, **kwargs):
+    return render(request, '500.html')
