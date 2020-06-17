@@ -18,10 +18,6 @@ from django.urls import path, include
 from users.views import register
 from django.conf import settings
 from django.conf.urls.static import static
-
-handler404 = 'assignment_adda.views.error_404_view'
-handler500 = 'assignment_adda.views.error_500_view'
-
 urlpatterns = [
     path('', include('assignment_adda.urls')),
     path('users/', include('django.contrib.auth.urls')),

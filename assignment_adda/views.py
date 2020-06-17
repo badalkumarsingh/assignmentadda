@@ -73,9 +73,3 @@ def edit_entry(request, edit_id):
             return HttpResponseRedirect(reverse('topic', args=[topic.id]))
     context = {'entry':entry, 'topic':topic, 'form': form}
     return render(request,'assignment_adda/edit_entry.html', context)
-
-def error_404_view(request, exception):
-    return render(request, '404.html', status=404)
-
-def error_500_view(request):
-    return render(request, '500.html', status=500)
