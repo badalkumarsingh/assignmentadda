@@ -142,16 +142,16 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Heroku settings
-# if os.getcwd() == '/app':
-#     import dj_database_url
-#     DATABASES = {
-#         'default': dj_database_url.config(default='postgress://localhost')
-#     }
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+if os.getcwd() == '/app':
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(default='postgress://localhost')
+    }
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     
-#     DEBUG = True
+    DEBUG = True
     
-#     ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['*']
     
 #     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 #     STATIC_URL = '/static/'
