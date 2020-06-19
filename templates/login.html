@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
+{% load i18n %}
+{% load account socialaccount %}
 {% block content %}
 <style>
 .alerts {
@@ -23,6 +25,27 @@
 
 </section>
 
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+{% endif %}
 
 <section class="mbr-section form1 cid-s1HhnieMcT" id="form1-27">
 <div class="container">
@@ -37,7 +60,7 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!--Formbuilder Form-->
-                <form action="{% url 'login' %}" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
+                <form action="{% url 'account_login' %}" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
                 {% csrf_token %}
                     <div class="row">
                     {% if form.errors %}
@@ -49,11 +72,7 @@
                     <div class="dragArea row">
                         <div class="col-md-12 form-group" data-for="name">
                             <label for="name-form1-27" class="form-control-label mbr-fonts-style display-7">Username</label>
-                            <br>{{form.username|add_class:"form-control display-7"}}
-                        </div>
-                        <div class="col-md-12 form-group" data-for="password">
-                            <label for="password-form1-27" class="form-control-label mbr-fonts-style display-7">Password</label>
-                            <br>{{form.password|add_class:"form-control display-7"}}
+                            {{ form.as_p }}
                         </div>
                         
                         

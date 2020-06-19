@@ -72,13 +72,13 @@ border: 1px solid #000000;
                     <a class="btn btn-sm btn-primary display-4" href="">
                         <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>{{user.username}}
                     </a>
-                    <a class="btn btn-sm btn-secondary display-4" href="{% url 'logout' %}"><span class="mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Logout
+                    <a class="btn btn-sm btn-secondary display-4" href="{% url 'account_logout' %}"><span class="mbri-logout mbr-iconfont mbr-iconfont-btn"></span>Logout
                     </a> {% else %}
-                    <a class="btn btn-sm btn-primary display-4" href="{% url 'login' %}">
+                    <a class="btn btn-sm btn-primary display-4" href="{% url 'account_login' %}">
                         <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Login
                     </a>
 
-                    <a class="btn btn-sm btn-primary display-4" href="{% url 'register' %}">
+                    <a class="btn btn-sm btn-primary display-4" href="{% url 'account_signup' %}">
                         <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Register
                     </a>
                     {% endif %}

@@ -24,10 +24,11 @@ handler500 = 'assignment_adda.views.error_500_view'
 
 urlpatterns = [
     path('', include('assignment_adda.urls')),
-    path('users/', include('django.contrib.auth.urls')),
+    # path('users/', include('django.contrib.auth.urls')),
     path('registration/', register, name='register'),
     path('admin/', admin.site.urls),
-    path('blog/', include('myblog.urls'))
+    path('blog/', include('myblog.urls')),
+    path('users/', include('allauth.urls')),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
