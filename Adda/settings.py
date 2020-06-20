@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'assignment_adda',
     'myblog',
+    'myapi',
     'users',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.google',
+    'rest_framework',
 ]
 
 SITE_ID = 3

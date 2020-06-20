@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from .models import Myblog
 from .forms import CommentForm
+from rest_framework import viewsets
+from .serializers import MyblogSerializer
+
+class MyblogViewSet(viewsets.ModelViewSet):
+    queryset = Myblog.objects.all().order_by('date_added')
+    serializer_class = MyblogSerializer
+    
 # Create your views here.
 def blog(request):
     blog = Myblog.objects.order_by('date_added')
