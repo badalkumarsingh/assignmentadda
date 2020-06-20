@@ -174,23 +174,22 @@ if os.getcwd() == '/app':
     
     ALLOWED_HOSTS = ['*']
     
-#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-#     STATIC_URL = '/static/'
-
-#      # Add these new lines
-#     STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-#     )
-
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# django_heroku.settings(locals())
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'kumarunknown733@gmail.com'
-EMAIL_HOST_PASSWORD = 'cbibrywsijveciry'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Badal Adda <noreply@badaladda.com>'
+    ACCOUNT_EMAIL_REQUIRED = True
+    ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'kumarunknown733@gmail.com'
+    EMAIL_HOST_PASSWORD = 'cbibrywsijveciry'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    DEFAULT_FROM_EMAIL = 'Badal Adda <noreply@badaladda.com>'
+else:
+    ACCOUNT_EMAIL_REQUIRED = True
+    ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'kumarunknown733@gmail.com'
+    EMAIL_HOST_PASSWORD = 'cbibrywsijveciry'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    DEFAULT_FROM_EMAIL = 'Badal Adda <noreply@badaladda.com>'
