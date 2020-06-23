@@ -18,6 +18,16 @@ from django.urls import path, include
 from users.views import register
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sites.models import Site
+
+admin.site.unregister(Site)
+class SiteAdmin(admin.ModelAdmin):
+    fields = ('id', 'name', 'domain')
+    readonly_fields = ('id',)
+    list_display = ('id', 'name', 'domain')
+    list_display_links = ('name',)
+    search_fields = ('name', 'domain')
+admin.site.register(Site, SiteAdmin)
 
 handler404 = 'assignment_adda.views.error_404_view'
 handler500 = 'assignment_adda.views.error_500_view'
