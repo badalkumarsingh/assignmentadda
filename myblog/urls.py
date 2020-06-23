@@ -8,6 +8,6 @@ router.register('myblog', views.MyblogViewSet)
 urlpatterns = [
     path('', views.blog, name="blog"),
     path('<str:blog_title>', views.read, name="read"),
-    path('', include(router.urls)),
+    path('api/', views.MyblogViewSet.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

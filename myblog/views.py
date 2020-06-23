@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from .models import Myblog
 from .forms import CommentForm
-from rest_framework import viewsets
+from rest_framework import generics
 from .serializers import MyblogSerializer
 
-class MyblogViewSet(viewsets.ModelViewSet):
+class MyblogViewSet(generics.ListAPIView):
     queryset = Myblog.objects.all().order_by('date_added')
     serializer_class = MyblogSerializer
     
