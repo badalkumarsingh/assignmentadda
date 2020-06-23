@@ -17,7 +17,6 @@
 <br>or<br><br>
 {% endif %}
 <!-- -->
-                <!--Formbuilder Form-->
                 <form action="{% url 'account_signup' %}" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
                     {% csrf_token %}
                     <div class="row">
@@ -48,7 +47,6 @@
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
                 </form>
-                <!--Formbuilder Form-->
             </div>
         </div>
     </div>

@@ -178,7 +178,7 @@ if os.getcwd() == '/app':
     
 # ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kumarunknown733@gmail.com'
@@ -186,19 +186,3 @@ EMAIL_HOST_PASSWORD = 'cbibrywsijveciry'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Badal Adda <noreply@badaladda.com>'
-    
-    
-    
-# <?php
-# $url = "https://assignmentadda.herokuapp.com/blog/myblog/";
-# $response = file_get_contents($url);
-# $array = json_decode( $response, true);
-
-# foreach ($array as $key => $jsons) { // This will search in the 2 jsons
-#      foreach($jsons as $key => $value) {
-#          echo $value;
-#          echo "\n";// This will show jsut the value f each key like "var1" will print 9
-#                        // And then goes print 16,16,8 ...
-#     }
-# }
-# ?>
