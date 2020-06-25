@@ -36,12 +36,14 @@ INSTALLED_APPS = [
     'myblog',
     'myapi',
     'users',
+    'snipshare',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     # The following apps are required:
     'django.contrib.sites',
     'allauth',
@@ -156,7 +158,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'MEDIA')
 MEDIA_URL = '/media/'
 

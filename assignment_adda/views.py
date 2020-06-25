@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from .models import Subject, Topic, Entry
 from .forms import TopicForm, EntryForm
@@ -11,6 +12,19 @@ def index(request):
 
 def about(request):
     return render(request, 'assignment_adda/aboutus.html')
+
+
+def profile(request):
+    site_profile = User.objects.get(username=request.user)
+    if request.method == "POST":
+        form = User( instance=site_profile )
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = User(instance=site_profile)
+        return render(request, 'account/profile.html', {'form': form })
+
 def subjects(request):
     subjects = Subject.objects.order_by('date_added')
     context = {'subjects': subjects}

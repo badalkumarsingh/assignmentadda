@@ -1,0 +1,13 @@
+{% load static %}
+<title>{{snip.title}} - Adda</title>
+<link rel="stylesheet" href="{% static 'snip/prism.css' %}">
+<div class="main">
+    <h1 class="title">{{snip.title}}</h1>
+    <b><time>{{snip.updated_at}}</time></b>
+    <div>
+        <b>Snippet URL:</b> <a href="{{ request.build_absolute_uri }}">"{{ request.build_absolute_uri }}"</a>
+    </div>
+    <pre><code class="language-{{snip.lang}} line-numbers">{{snip.text}}</code></pre>
+
+</div>
+<script src="{% static 'snip/prism.js' %}"></script>

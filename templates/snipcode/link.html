@@ -1,0 +1,13 @@
+<body> 
+    <h1> My Links </h1>
+    <p> 
+        {% for snip in snips %} 
+        {% if user.is_authenticated %} 
+        <p><a href="{% url 'index' %}p/{{snip.link_code}}">{{snip.title}}</a></p> 
+        {% else %} 
+        <p>Register/Login to know more</p> 
+        {% endif %} 
+        {% endfor %} 
+  
+    </p> 
+</body>

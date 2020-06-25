@@ -1,0 +1,14 @@
+{% if user.is_authenticated %}
+<form method="POST">
+{% csrf_token %}
+New Snippet:<br>
+{{form.text}}<br>
+Snippet Title:<br>
+{{form.title}}<br>
+Syntax Highlighting<br>
+{{form.lang}}
+<input type="submit" value="submit">
+</form>
+{% else %}
+First Login
+{% endif %}

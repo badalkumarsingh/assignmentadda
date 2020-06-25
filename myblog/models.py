@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Myblog(models.Model):
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    content = RichTextUploadingField()
     date_added = models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name_plural = 'blogs'
