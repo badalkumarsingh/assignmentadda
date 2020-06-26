@@ -28,7 +28,7 @@ def edit_snip(request, snip_id):
     context = {'snip':snip,'form': form}
     return render(request,'snipcode/snip_edit.html', context)
 
-def index(request):
+def snip(request):
     snips=Snip.objects.order_by('-updated_at')[:8]
     form=snipForm(request.POST)
     if request.method =='POST':
