@@ -5,17 +5,35 @@
     <div class="container">
         <div class="row justify-content-center content-row">
             <div class="row col-12">
-                <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-2"><strong>
-                    {{snip.title}}</strong></h3>
+                <h3 class="mbr-section-subtitle align-left"><strong>
+                    {{snip.title}}</strong>
+                    {% if snip.user == request.user %}
+                    <a href="{% url 'edit_snip' snip.link_code %}"><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn"></a>
+                    {% endif %}
+                    </h3>
                 
             </div>
             <div class="media-container col-12">
-            <h2 class="align-left mbr-bold mbr-fonts-style display-4"><span style="font-weight: normal;">
-                    <a href="{{ request.build_absolute_uri }}" target="_blank">{{ request.build_absolute_uri }}</a></span></h2>
+            <h2 class="align-left mbr-bold mbr-fonts-style display-4" style="text-align:left"><span style="font-weight: normal;">
+                    <a href="{{ request.build_absolute_uri }}" target="_blank">{{ request.build_absolute_uri }} </a>
+
+                    <input type="hidden" value="{{ request.build_absolute_uri }}" id="myLink">
+                    <a onclick="myFunction()"><span class="mbri-layers mbr-iconfont mbr-iconfont-btn"></a>
+                    
+                    
+                    </span></h2>
                 <pre><code class="language-{{snip.lang}} line-numbers">{{snip.text}}</code></pre>
             </div>
         </div>
     </div>
 </section>
+<script>
+function myFunction() {
+  var copyText = document.getElementById("myLink");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+</script>
 <script src="{% static 'snip/prism.js' %}"></script>
 {% endblock content %}
