@@ -25,7 +25,7 @@
 <div class="container">
         <div class="row justify-content-center content-row">
             <div class="media-container-column title col-12 col-lg-7 col-md-6">
-                <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-5">{{topic.text}}</h3>
+                <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-5">{{topic.text|urlize}}</h3>
                 <h2 class="align-left mbr-bold mbr-fonts-style display-7">
                     Asked By {% if topic.owner == request.user %}Me{% else %}{{topic.owner}}{% endif %}</h2>
             </div>

@@ -1,13 +1,21 @@
-{% load static %}
-<title>{{snip.title}} - Adda</title>
+{% extends "base.html" %}{% load static %}
+{% block content %}
 <link rel="stylesheet" href="{% static 'snip/prism.css' %}">
-<div class="main">
-    <h1 class="title">{{snip.title}}</h1>
-    <b><time>{{snip.updated_at}}</time></b>
-    <div>
-        <b>Snippet URL:</b> <a href="{{ request.build_absolute_uri }}">"{{ request.build_absolute_uri }}"</a>
+<section class="mbr-section info1 cid-s2WxjGjzT0" id="info1-3z" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row justify-content-center content-row">
+            <div class="row col-12">
+                <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-2"><strong>
+                    {{snip.title}}</strong></h3>
+                
+            </div>
+            <div class="media-container col-12">
+            <h2 class="align-left mbr-bold mbr-fonts-style display-4"><span style="font-weight: normal;">
+                    <a href="{{ request.build_absolute_uri }}" target="_blank">{{ request.build_absolute_uri }}</a></span></h2>
+                <pre><code class="language-{{snip.lang}} line-numbers">{{snip.text}}</code></pre>
+            </div>
+        </div>
     </div>
-    <pre><code class="language-{{snip.lang}} line-numbers">{{snip.text}}</code></pre>
-
-</div>
+</section>
 <script src="{% static 'snip/prism.js' %}"></script>
+{% endblock content %}

@@ -1,13 +1,27 @@
-<body> 
-    <h1> My Links </h1>
-    <p> 
-        {% for snip in snips %} 
-        {% if user.is_authenticated %} 
-        <p><a href="{% url 'index' %}p/{{snip.link_code}}">{{snip.title}}</a></p> 
-        {% else %} 
-        <p>Register/Login to know more</p> 
-        {% endif %} 
-        {% endfor %} 
-  
-    </p> 
-</body>
+{% extends "base.html" %}{% load static %}
+{% block content %}
+<section class="mbr-section content4 cid-s2WwjHjaJ9" id="content4-3w" style="margin-top: 100px;">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h1 class="align-center pb-3 mbr-fonts-style display-2">My Snippets</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="mbr-section article content12 cid-s2WvU5WjxM" id="content12-3v">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="mbr-text counter-container col-12 col-md-8 mbr-fonts-style display-7">
+            {% for snip in snips %} 
+                <ul>
+                    <li><h3><a href="{% url 'index' %}p/{{snip.link_code}}">{{snip.title}}</a></h3></li>
+                </ul>
+            {% empty %}
+            <h2 class="align-center">No available snippets <a href="{% url 'index' %}">Create new</h2></a>
+            {% endfor %} 
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
