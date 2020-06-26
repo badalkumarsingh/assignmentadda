@@ -9,5 +9,5 @@ urlpatterns = [
     path('new_question/<subject_id>', views.new_topic, name="new_topic"),
     path('new_answer/<topic_id>', views.new_entry, name="new_entry"),
     path('edit_answer/<edit_id>', views.edit_entry, name="edit_entry"),
-    path('about', views.about, name="about")
+    # path('home', views.about, name="about")
 ]

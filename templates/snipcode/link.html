@@ -18,7 +18,7 @@
                     <li><h3><a href="{% url 'snip' %}p/{{snip.link_code}}">{{snip.title}}</a></h3></li>
                 </ul>
             {% empty %}
-            <h2 class="align-center">No available snippets <a href="{% url 'index' %}">Create new</h2></a>
+            <h2 class="align-center">No available snippets <a href="{% url 'snip' %}">Create new</h2></a>
             {% endfor %} 
             </div>
         </div>

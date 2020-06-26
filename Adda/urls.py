@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from assignment_adda.views import profile
+from assignment_adda.views import profile, about
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sites.models import Site
@@ -33,7 +33,7 @@ handler404 = 'assignment_adda.views.error_404_view'
 handler500 = 'assignment_adda.views.error_500_view'
 
 urlpatterns = [
-    path('', include('assignment_adda.urls')),
+    path('assignmentadda', include('assignment_adda.urls')),
     # path('users/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('blog/', include('myblog.urls')),
@@ -41,6 +41,7 @@ urlpatterns = [
     path('profile/', profile, name="profile"),
     path('snip/', include('snipshare.urls'), name="snip"),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', about, name="about")
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,78 +1,88 @@
 {% extends "base.html" %}{% load static %}
 
 {% block content %}
-<section class="mbr-section info3 cid-s1Hx6cmZmt mbr-parallax-background" id="info3-2q">
-    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(35, 35, 35);">
-    </div>
+
+<section class="header1 cid-s30PHKGgmP" id="header16-42" style="margin-top:80px;">
+
+    
+
+    
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="media-container-column title col-12 col-md-10">
-                <h2 class="align-left mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
-                    ABOUT US</h2>
-                <h3 class="mbr-section-subtitle align-left mbr-light mbr-white pb-3 mbr-fonts-style display-5">Adda is an project to help the society with great resources
-<div>We provide the everything which you want</div></h3>
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 align-center">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-2">WELCOME TO ADDA</h1>
                 
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">
+                    Adda is a project to help the society with great resources</p>
                 
             </div>
         </div>
     </div>
+
 </section>
 
-<section class="counters5 counters cid-s1HuEI3aLy" id="counters5-2p">
-
+<section class="features1 cid-s30QilxsDC" id="features1-44">
+    
     
 
     
+    <div class="container">
+        <div class="media-container-row">
 
-    <div class="container pt-4 mt-2">
-        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">Our Services</h2>
-        
-        <div class="row justify-content-center">
-            <div class="cards-block">
-                <div class="cards-container">
-                    <div class="card px-3 align-left col-12">
-                        <div class="panel-item p-4 d-flex">
-                            <div class="card-img pr-3">
-                                <h3 class="img-text d-flex align-items-center justify-content-center">1</h3>
-                            </div>
-                            <div class="card-text">
-                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Assignment Adda</h4>
-                                <p class="mbr-content-text mbr-fonts-style display-7">
-                                    This project is made foe students where they can ask questions and give answers to other questions. <a href="{% url 'index' %}">Have a look at it</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card px-3 align-left col-12">
-                        <div class="panel-item p-4 d-flex">
-                            <div class="card-img pr-3">
-                                <h3 class="img-text d-flex align-items-center justify-content-center">
-                                    2
-                                </h3>
-                            </div>
-                            <div class="card-text">
-                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Blog Adda</h4>
-                                <p class="mbr-content-text mbr-fonts-style display-7">
-                                    A Blog app in which i share my articles. <a href="{% url 'blog' %}">Have a look at it</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card px-3 align-left col-12">
-                        <div class="panel-item p-4 d-flex">
-                            <div class="card-img pr-3">
-                                <h3 class="img-text d-flex align-items-center justify-content-center">
-                                    3
-                                </h3>
-                            </div>
-                            <div class="card-text">
-                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Snippets Adda</h4>
-                                <p class="mbr-content-text mbr-fonts-style display-7">Share short codes with your friends with syntax highlighting. <a href="{% url 'snip' %}">Have a look at it</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-img pb-3">
+                    <a href="{% url 'index' %}"><span class="mbr-iconfont mbri-idea"></span></a>
+                </div>
+                <div class="card-box">
+                    <h4 class="card-title py-3 mbr-fonts-style display-5"><a href="{% url 'index' %}" class="text-primary"><strong>ASSIGNMENT ADDA</strong></a></h4>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        This project is made foe students where they can ask questions and give answers to other questions.
+                    </p>
                 </div>
             </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-img pb-3">
+                    <a href="{% url 'blog' %}"><span class="mbr-iconfont socicon-blogger socicon"></span></a>
+                </div>
+                <div class="card-box">
+                    <h4 class="card-title py-3 mbr-fonts-style display-5"><a href="{% url 'blog' %}" class="text-primary"><strong>BLOG ADDA</strong></a></h4>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        A Blog app in which i share my articles. You can use this blog in your own webpage by using blog API</p>
+                </div>
+            </div>
+
+            <div class="card p-3 col-12 col-md-6 col-lg-4">
+                <div class="card-img pb-3">
+                    <a href="{% url 'snip' %}"><span class="mbr-iconfont mbri-code"></span></a>
+                </div>
+                <div class="card-box">
+                    <h4 class="card-title py-3 mbr-fonts-style display-5">
+                        <a href="{% url 'snip' %}"><strong>SNIPPETS ADDA</strong></a></h4>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        Share short codes with your friends with syntax highlighting, line numbers, unique url</p>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="mbr-section article content10 cid-s30RMFFciJ" id="content10-45">
+    
+     
+
+    <div class="container">
+        <div class="inner-container" style="width: 66%;">
+            <hr class="line" style="width: 25%;">
+            <div class="section-text align-center mbr-white mbr-fonts-style display-5">
+                    Along with above services we also provide API service of Blog Adda<br></div>
+            <hr class="line" style="width: 25%;">
         </div>
     </div>
 </section>
