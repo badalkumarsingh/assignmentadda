@@ -1,26 +1,19 @@
 {% extends "base.html" %}{% load static %} {% load widget_tweaks %}
 {% block content %}
 <section class="cid-s1YobsWTaC" id="image1-3e">
-
-
-
     <figure class="mbr-figure container">
-        <div class="image-block" style="width: 66%;">
-            <img src="{% static 'assets/images/background1.jpg' %}" width="1400" alt="{{ blog.title }}">
-
+        <div class="image-block" style="width: 66%; height:66%">
+            <img src="{{blog.img.url}}" title="{{ blog.title }}">
         </div>
     </figure>
 </section>
 
 <section class="mbr-section article content1 cid-s1YotFYkP9" id="content1-3g">
-
-
-
     <div class="container">
         <div class="media-container-row">
             <div class="mbr-text col-12 mbr-fonts-style display-7 col-md-8">
-                <h3>{{ blog.title }}</h3>
-                <p>{{ blog.content | safe }}</p>
+                <h3>{{ blog.title|capfirst }}</h3>
+                <p>{{ blog.content | safe | urlize | capfirst }}</p>
             </div>
         </div>
     </div>
