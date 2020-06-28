@@ -1,12 +1,12 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from django import forms
+# from django import forms
 from django.contrib.auth.models import User
 import uuid
 class Snip(models.Model):
     alphanumeric = RegexValidator(
         r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
-    user = models.ForeignKey(User, on_delete = models.CASCADE) 
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
     title = models.CharField(max_length=40, default="Untitled")
     text = models.TextField()
     link_code = models.CharField(max_length=100, primary_key=True, default=uuid.uuid4, editable=False)
@@ -82,9 +82,36 @@ class Snip(models.Model):
              ('Wiki markup', 'wiki'),
              ('YAML', 'yaml, yml'),
              ('Zig', 'zig'),
-
+                ]
+    themes = [('Default', 'None'),
+             ('Atom-dark', 'atom-dark'),
+             ('CB', 'cb'),
+             ('Coy', 'coy'),
+             ('Darcula', 'darcula'),
+             ('Dark', 'dark'),
+             ('Duotone-dark', 'duotone-dark'),
+             ('Duotone-earth', 'duotone-earth'),
+             ('Duotone-forest', 'duotone-forest'),
+             ('Duotone-light', 'duotone-light'),
+             ('Duotone-sea', 'duotone-sea'),
+             ('Duotone-space', 'duotone-space'),
+             ('Funky', 'funky'),
+             ('Ghcolors', 'ghcolors'),
+             ('Hopscotch', 'hopscotch'),
+             ('Light', 'light'),
+             ('Material-dark', 'material-dark'),
+             ('Material-light', 'material-light'),
+             ('Okaidia', 'okaidia'),
+             ('Shades of purple', 'shades-of-purple'),
+             ('Solarized light', 'solarizedlight'),
+             ('Tomorrow', 'tomorrow'),
+             ('Twilight', 'twilight'),
+             ('VS', 'vs'),
+             ('VS dark', 'vsc-dark-plus'),
+             ('Xonokai', 'xonokai'),
              ]
     lang = models.CharField(max_length=18, choices=langs, default='text')
+    theme = models.CharField(max_length=18, choices=themes, default='Default')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -8,20 +8,20 @@
         <div class="row justify-content-md-center">
             <div class="mbr-white col-md-10">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">SNIP SHARE</h1>
-                
+
                 <p class="mbr-text pb-3 mbr-fonts-style display-5">
                     Share peice of code of any programming language and share with your friends.<br>Synatx highlighting, Line numbers, code copy option are major feature of this project</p>
                     {% if not user.is_authenticated %}
                 <div class="mbr-section-btn">
                 <a class="btn btn-md btn-white-outline display-4" href="{% url 'account_login' %}?next=/snip"><span class="mbri-login mbr-iconfont mbr-iconfont-btn"></span>LOGIN
                 </a>
-                
+
                 </div>
                 {% else %}
                 <div class="mbr-section-btn">
                 <a class="btn btn-md btn-white-outline display-4" href="{% url 'link' %}"><span class="mbri-preview mbr-iconfont mbr-iconfont-btn"></span>MY SNIPS
                 </a>
-                
+
                 </div>
                     {% endif %}
             </div>
@@ -36,7 +36,7 @@
         </a>
     </div>
 </section>
-
+<section id="start"></section>
 <section class="mbr-section form1 cid-s2Wuc0TGn1" id="form1-3r">
     <div class="container">
         <div class="row justify-content-center">
@@ -48,20 +48,24 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
 
-                <form method="POST" class="mbr-form form-with-styler">                
+                <form method="POST" class="mbr-form form-with-styler">
                     {% csrf_token %}
                     <div class="dragArea row">
                         <div data-for="message" class="col-md-12 form-group">
                             <label class="form-control-label mbr-fonts-style display-7">Snipcode</label>
                             {{form.text|add_class:"form-control display-7"}}
                         </div>
-                        <div class="col-md-6  form-group">
+                        <div class="col-md-4  form-group">
                             <label class="form-control-label mbr-fonts-style display-7">Title</label>
                             {{form.title|add_class:"form-control display-7"}}
                         </div>
-                        <div class="col-md-6  form-group">
+                        <div class="col-md-4  form-group">
                             <label class="form-control-label mbr-fonts-style display-7">Syntax</label>
                             {{form.lang|add_class:"form-control display-7"}}
+                        </div>
+                        <div class="col-md-4  form-group">
+                            <label class="form-control-label mbr-fonts-style display-7">Choose Theme</label>
+                            {{form.theme|add_class:"form-control display-7"}}
                         </div>
                         <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-form btn-primary display-4"><span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>CREATE NEW SNIP</button></div>
                     </div>

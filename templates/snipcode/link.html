@@ -13,13 +13,13 @@
     <div class="container">
         <div class="media-container-row">
             <div class="mbr-text counter-container col-12 col-md-8 mbr-fonts-style display-7">
-            {% for snip in snips %} 
+            {% for snip in snips %}
                 <ul>
                     <li><h3><a href="{% url 'snip' %}p/{{snip.link_code}}">{{snip.title}}</a></h3></li>
                 </ul>
             {% empty %}
-            <h2 class="align-center">No available snippets <a href="{% url 'snip' %}">Create new</h2></a>
-            {% endfor %} 
+            <h5 class="align-center">No available snippets<br><a href="{% url 'snip' %}#start">Create new</h5></a>
+            {% endfor %}
             </div>
         </div>
     </div>
