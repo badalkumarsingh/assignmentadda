@@ -164,3 +164,13 @@ pre[data-line] {
 	top: auto;
 	bottom: .4em;
 }
+
+/* for line numbers */
+.line-numbers-rows {
+	margin: 0;
+}
+
+.line-numbers-rows span {
+	padding-right: 10px;
+	border-right: 3px #d9d336 solid;
+}

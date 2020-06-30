@@ -180,3 +180,39 @@ pre[class*="language-"]:after {
 .token.namespace {
 	opacity: .7;
 }
+
+@media screen and (max-width: 767px) {
+	pre[class*="language-"]:before,
+	pre[class*="language-"]:after {
+		bottom: 14px;
+		box-shadow: none;
+	}
+
+}
+
+/* Plugin styles: Line Numbers */
+pre[class*="language-"].line-numbers.line-numbers {
+	padding-left: 0;
+}
+
+pre[class*="language-"].line-numbers.line-numbers code {
+	padding-left: 3.8em;
+}
+
+pre[class*="language-"].line-numbers.line-numbers .line-numbers-rows {
+	left: 0;
+}
+
+/* Plugin styles: Line Highlight */
+pre[class*="language-"][data-line] {
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+}
+pre[data-line] code {
+	position: relative;
+	padding-left: 4em;
+}
+pre .line-highlight {
+	margin-top: 0;
+}

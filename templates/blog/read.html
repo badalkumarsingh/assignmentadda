@@ -1,6 +1,6 @@
 {% extends "base.html" %}{% load static %} {% load widget_tweaks %}
 {% block content %}
-<section class="cid-s1YobsWTaC" id="image1-3e">
+<section class="cid-s1YobsWTaC" id="image1-3e" style="margin-top:45px">
     <figure class="mbr-figure container">
         <div class="image-block" style="width: 66%; height:66%">
             <img src="{{blog.img.url}}" title="{{ blog.title }}">
@@ -41,11 +41,11 @@
                 {% csrf_token %}
                     {% if new_comment %}
                     <div class="row">
-                        
+
                         <div class="alert align-center alert-success" role="alert">
                             Thank you for your comment. Moderator soon add your comment.
                         </div>
-                        
+
                     </div>
                     {% else %}
                     <div class="dragArea row">
@@ -70,7 +70,7 @@
                 </form>
             </div>
         </div>
-        <!-- 
+        <!--
     -->
         <div class="card-body">
 

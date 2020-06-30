@@ -2,6 +2,7 @@
 {% load my_tags %}
 {% block content %}
 <link rel="stylesheet" href="{% get_static_prefix %}snip/themes/prism-{{ snip.theme|lower }}.css">
+<link rel="stylesheet" href="{% get_static_prefix %}snip/themes/line-numbers.css">
 <section class="mbr-section info1 cid-s2WxjGjzT0" id="info1-3z" style="margin-top: 80px;">
     <div class="container">
         <div class="row justify-content-center content-row">
@@ -12,7 +13,6 @@
                     <a href="{% url 'edit_snip' snip.link_code %}"><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn"></a>
                     {% endif %}
                     </h3>
-
             </div>
             <div class="media-container col-12">
             <h2 class="align-left mbr-bold mbr-fonts-style display-4" style="text-align:left"><span style="font-weight: normal;">
@@ -23,18 +23,10 @@
 
 
                     </span></h2>
-                <pre><code class="language-{{snip.lang}} line-numbers">{{snip.text}}</code></pre>
+                <pre><code class="language-{{ snip.lang }}{% if snip.lines %} line-numbers{% endif %}">{{snip.text}}</code></pre>
             </div>
         </div>
     </div>
 </section>
-<script>
-function myFunction() {
-  var copyText = document.getElementById("myLink");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-}
-</script>
 <script src="{% static 'snip/prism.js' %}"></script>
 {% endblock content %}
