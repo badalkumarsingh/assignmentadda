@@ -45,17 +45,18 @@
 {% if provider.id == "openid" %}
 {% for brand in provider.get_brands %}
 <li>
-  <a title="{{brand.name}}" 
-     class="socialaccount_provider {{provider.id}} {{brand.id}}" 
+  <a title="{{brand.name}}"
+     class="socialaccount_provider {{provider.id}} {{brand.id}}"
      href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
      >{{brand.name}}</a>
 </li>
 {% endfor %}
 {% endif %}
 <div class="google-btn">
+    <a style="color:#fff" title="{{provider.name}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
   <div class="google-icon-wrapper">
     <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-  </div>
-  <p class="btn-text"><b><a style="color:#fff" title="{{provider.name}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">Sign in with {{provider.name}}</a></b></p>
+  </div><p class="btn-text"><b>Sign in with {{provider.name}}</b></p>
+  </a>
 </div>
 {% endfor %}

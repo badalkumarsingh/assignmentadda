@@ -20,23 +20,15 @@
 </section>
 
 <section class="services5 cid-s1H5koxRZ5" id="services5-1a">
-    <!---->
-
-    <!---->
-    <!--Overlay-->
-
-    <!--Container-->
     <div class="container">
         <div class="row">
-            <!--Titles-->
             <div class="title pb-5 col-12">
 
 
             </div>
-            <!--Card-1-->
             {% for subject in subjects %}
             <div class="card px-3 col-12">
-                <div class="card-wrapper media-container-row media-container-row">
+                <div class="card-wrapper media-container-row media-container-row" style="border-top:0px;margin-top:-50px">
                     <div class="card-box">
                         <div class="top-line pb-3">
                             <h4 class="card-title mbr-fonts-style display-5">
@@ -44,26 +36,21 @@
                             <p class="mbr-text cost mbr-fonts-style m-0 display-5">
                                 <a href="{% url 'subjects' %}/{{subject.id}}" class="mbr-text cost mbr-fonts-style m-0 display-5"><span class="mbri-arrow-next mbr-iconfont mbr-iconfont-btn"></span></a></p>
                         </div>
-                        <div class="bottom-line">
-                            <p class="mbr-text mbr-fonts-style m-0 b-descr display-7">
-                                {{subject.desc}}</p>
-                        </div>
                     </div>
                 </div>
             </div>
             {% empty %}
             <div class="card px-3 col-12">
-                
-                    
+
+
                         <div class="top-line pb-3">
                             <h4 class="card-title mbr-fonts-style display-5">
                                 No subject found!! ask moderator to add some subjects. <a href="">Email here</a> and send <b>Subject Name</b> and <b>Description</b></h4>
                         </div>
-                    
-                
+
+
             </div>
             {% endfor %}
-            <!--Card-1-->
         </div>
     </div>
 </section>

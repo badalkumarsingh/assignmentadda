@@ -11,6 +11,7 @@
                     {{snip.title}}</strong>
                     {% if snip.user == request.user %}
                     <a href="{% url 'edit_snip' snip.link_code %}"><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn"></a>
+                    <a href="{% url 'delete_snip' snip.link_code %}"><span class="mbri-close mbr-iconfont mbr-iconfont-btn" style="color:red;"></a>
                     {% endif %}
                     </h3>
             </div>

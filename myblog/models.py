@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 class Myblog(models.Model):
     img = models.ImageField(upload_to='pics', blank=True)

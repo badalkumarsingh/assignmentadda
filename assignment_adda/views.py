@@ -65,7 +65,7 @@ def new_entry(request, topic_id):
         if form.is_valid():
             new_entry = form.save(commit=False)
             new_entry.topic = topic
-            new_entry.img = form.cleaned_data.get("img") 
+            new_entry.img = form.cleaned_data.get("img")
             new_entry.owner = request.user
             new_entry.save()
             return HttpResponseRedirect(reverse('topic', args=[topic_id]))
@@ -81,12 +81,27 @@ def edit_entry(request, edit_id):
         form = EntryForm(instance=entry)
     else:
         form = EntryForm(instance=entry, data=request.POST, files=request.FILES)
-        
+
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('topic', args=[topic.id]))
     context = {'entry':entry, 'topic':topic, 'form': form}
     return render(request,'assignment_adda/edit_entry.html', context)
+
+@login_required
+def delete_entry(request, edit_id):
+    entry = Entry.objects.get(id=edit_id)
+    topic = entry.topic
+    if entry.owner != request.user:
+        raise Http404
+    if request.method != 'POST':
+        form = EntryForm(instance=entry)
+    else:
+        form = EntryForm(request.POST, instance=entry)
+        entry.delete()
+        return HttpResponseRedirect(reverse('topic', args=[topic.id]))
+    context = {'entry':entry, 'topic':topic, 'form': form}
+    return render(request,'assignment_adda/delete_entry.html', context)
 
 def error_404_view(request, exception):
     return render(request, '404.html', status=404)

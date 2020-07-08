@@ -1,55 +1,7 @@
 {% extends "base.html" %}{% load static %} {% block content %}
-<!-- 
-
-{% for blog in blogs %}
-
-<section class="mbr-section content4 cid-s1XUXYJDLt" id="content4-36" style="margin-top: 30px;">
-
-
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
-                <h2 class="align-center pb-3 mbr-fonts-style display-2">
-                    {{blog.title}}
-                </h2>
-
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="mbr-section content6 cid-s1XTvbyLIW" id="content6-34" style="margin-top: 0px;
-    margin-bottom: 30px;">
-
-
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="col-12 col-md-8">
-                <div class="media-container-row">
-                    <div class="mbr-figure" style="width: 45%;">
-                        <img src="https://smaller-pictures.appspot.com/images/dreamstime_xxl_65780868_small.jpg" alt="{{blog.title}}" width="200" height="200">
-                    </div>
-                    <div class="media-content" style="padding:28px">
-                        <div class="mbr-section-text">
-                            <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                                {{ blog.content|truncatewords:50|slice:":-4" }}<strong><a href="{% url 'blog' %}{{blog.title}}">{{read_more}}</a></strong>
-
-                            </p>
-                            <p>{{blog.date_added}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{% endfor %}  -->
 <section class="cid-s310dX6wtN mbr-fullscreen mbr-parallax-background" id="header2-4a">
 
-    
+
 
     <div class="mbr-overlay" style="opacity: 0.4; background-color: rgb(35, 35, 35);"></div>
 
@@ -57,16 +9,17 @@
         <div class="row justify-content-md-center">
             <div class="mbr-white col-md-10">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">BLOG ADDA</h1>
-                
+
                 <p class="mbr-text pb-3 mbr-fonts-style display-5">Explore the worlds famous things, read my articles, thoughts and many more things.<br>Dive into my thoughts</p>
                 <div class="mbr-section-btn"><a class="btn btn-md btn-success display-4" href="#myblogs"><span class="mbri-down mbr-iconfont mbr-iconfont-btn"></span>EXPLORE</a>
                     <a class="btn btn-md btn-white-outline display-4" href="{% url 'blog' %}api/"><span class="socicon socicon-zapier mbr-iconfont mbr-iconfont-btn"></span>API</a></div>
             </div>
         </div>
     </div>
-    
+
 </section>
 <section id="myblogs"></section>
+{% if blogs %}
 <section class="testimonials4 cid-s1YhLiOvU9 mbr-parallax-background" id="testimonials4-3b">
 
 
@@ -104,4 +57,26 @@
         {% endfor %}
     </div>
 </section>
+{% else %}
+<section class="testimonials4 cid-s1YhLiOvU9 mbr-parallax-background" id="testimonials4-3b">
+<div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(35, 35, 35);">
+    </div>
+    <div class="container">
+        <div class="col-md-10 testimonials-container">
+            <div class="testimonials-item">
+                <div class="user row">
+                    <div class="testimonials-caption col-lg-12 col-md-12">
+                        <div class="user_text">
+                            <p class="mbr-fonts-style  display-7" style="text-align: center;font-size: 2.3em;font-weight: 100;">
+                                Oops, No blog here
+                            </p>
+                            <p style="text-align:center">Soon I'll post one!!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
 {% endblock content %}

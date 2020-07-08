@@ -10,6 +10,7 @@ INSTALLED_APPS = [
     'myapi',
     'users',
     'snipshare',
+    'weather',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,7 +83,7 @@ DATABASES = {
     }
 }
 
-
+#ACCOUNT_SIGNUP_FORM_CLASS = 'users.forms.UserForm'
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -129,14 +130,23 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
+GEOIP_COUNTRY = 'GeoLite2-Country_20200630'
+GEOIP_CITY = 'GeoLite2-City_20200630'
 
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
+
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Badal Adda <noreply@badaladda.com>'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kumarunknown733@gmail.com'
 EMAIL_HOST_PASSWORD = 'saccnvtzbfeghlxt'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Badal Adda <noreply@badaladda.com>'

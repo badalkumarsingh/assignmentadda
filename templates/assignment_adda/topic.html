@@ -4,7 +4,7 @@
  {% block content %}
 <section class="header1 cid-s1HcvNFbbs mbr-parallax-background" id="header16-1q">
 
-    
+
 
     <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(35, 35, 35);">
     </div>
@@ -28,13 +28,15 @@
                 <h3 class="mbr-section-subtitle align-left mbr-light pb-3 mbr-fonts-style display-5 links">
                 {{entry.text|urlize|linebreaks}}{% if entry.img.url is not null %}<a href="{{entry.img.url}}"><span class="mbri-link mbr-iconfont mbr-iconfont-btn"></a>{% endif %}</h3>
                 <h2 class="align-left mbr-bold mbr-fonts-style display-7">
-                    Answerd {% if entry.owner == request.user %}Me{% else %}{{entry.owner}}{% endif %} | {{entry.date_added|date:'M d, Y h:i'}}</h2>
+                    Answerd by {% if entry.owner == request.user %}Me{% else %}{{entry.owner}}{% endif %} | {{entry.date_added|date:'M d, Y h:i'}}</h2>
             </div>
-            
+
             <div class="media-container-column col-12 col-lg-3 col-md-4">
             {% if entry.owner == request.user %}
-                <div class="mbr-section-btn align-right py-4"><a class="btn btn-success-outline display-4" href="{% url 'edit_entry' entry.id %}"><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn"></span>EDIT ANSWER</a></div>
-                
+                <div class="mbr-section-btn align-right" style="letter-spacing:5px;">
+                <a class="btn btn-success-outline display-2" href="{% url 'edit_entry' entry.id %}" style="font-size:10px;width:50%"><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:20px;"></span></a>
+                <a class="btn btn-danger-outline display-2" href="{% url 'delete_entry' entry.id %}" style="font-size:10px;width:45%"><span class="mbri-close mbr-iconfont mbr-iconfont-btn" style="font-size:20px;"></span></a>
+                </div>
             {% endif %}
             </div>
         </div>
