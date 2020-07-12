@@ -3,16 +3,14 @@ from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
 from .models import Subject, Topic, Entry
 from .forms import TopicForm, EntryForm
-# Create your views here.
+
 def index(request):
     return render(request, 'assignment_adda/index.html')
 
 def about(request):
     return render(request, 'assignment_adda/aboutus.html')
-
 
 def profile(request):
     site_profile = User.objects.get(username=request.user)
@@ -40,6 +38,7 @@ def topic(request, topic_id):
     entries = topic.entry_set.order_by('date_added')
     context = {'topic':topic, 'entries':entries}
     return render(request, 'assignment_adda/topic.html', context)
+
 @login_required
 def new_topic(request, subject_id):
     subject = Subject.objects.get(id=subject_id)
@@ -55,6 +54,7 @@ def new_topic(request, subject_id):
             return redirect('topics', topics_id=subject.id)
     context = {'subject': subject, 'form': form}
     return render(request,'assignment_adda/new_topic.html', context)
+
 @login_required
 def new_entry(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
@@ -71,6 +71,7 @@ def new_entry(request, topic_id):
             return HttpResponseRedirect(reverse('topic', args=[topic_id]))
     context = {'topic':topic, 'form': form}
     return render(request,'assignment_adda/new_entry.html', context)
+
 @login_required
 def edit_entry(request, edit_id):
     entry = Entry.objects.get(id=edit_id)
@@ -81,7 +82,6 @@ def edit_entry(request, edit_id):
         form = EntryForm(instance=entry)
     else:
         form = EntryForm(instance=entry, data=request.POST, files=request.FILES)
-
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('topic', args=[topic.id]))

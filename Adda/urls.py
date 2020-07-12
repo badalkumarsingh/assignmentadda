@@ -24,9 +24,7 @@ urlpatterns = [
     path('users/', include('allauth.urls')),
     path('profile/', include('users.urls')),
     path('snip/', include('snipshare.urls'), name="snip"),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', about, name="about"),
-    path('weather/', include('weather.urls')),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

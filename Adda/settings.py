@@ -1,16 +1,15 @@
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rr+#hbec6w*+$+)((g469b0rz2w)j2l=*+jfvh6gqdp8w$z1p_'
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'badalkumar.pythonanywhere.com']
 INSTALLED_APPS = [
     'widget_tweaks',
     'assignment_adda',
     'myblog',
-    'myapi',
     'users',
+    'django_extensions',
     'snipshare',
-    'weather',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,6 +71,10 @@ AUTHENTICATION_BACKENDS = [
 
 WSGI_APPLICATION = 'Adda.wsgi.application'
 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -130,14 +133,9 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
-GEOIP_COUNTRY = 'GeoLite2-Country_20200630'
-GEOIP_CITY = 'GeoLite2-City_20200630'
-
-
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-# ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 SOCIALACCOUNT_EMAIL_VERIFICATION = "none"

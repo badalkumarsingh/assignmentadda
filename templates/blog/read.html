@@ -106,28 +106,25 @@
                 </h2>
                 <div>
                     <div class="mbr-social-likes">
-                        <span class="btn btn-social socicon-bg-facebook facebook mx-2" title="Share link on Facebook">
-                            <i class="socicon socicon-facebook"></i>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank"><span class="btn btn-social socicon-bg-facebook facebook mx-2" title="Share link on Facebook">
+                            <i class="socicon socicon-facebook"></i></a>
                         </span>
-                        <span class="btn btn-social twitter socicon-bg-twitter mx-2" title="Share link on Twitter">
-                            <i class="socicon socicon-twitter"></i>
+                        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}" target="_blank"><span class="btn btn-social twitter socicon-bg-twitter mx-2" title="Share link on Twitter">
+                            <i class="socicon socicon-twitter"></i></a>
                         </span>
-                        <span class="btn btn-social vkontakte socicon-bg-vkontakte mx-2" title="Share link on VKontakte">
-                            <i class="socicon socicon-vkontakte"></i>
-                        </span>
-                        <span class="btn btn-social odnoklassniki socicon-bg-odnoklassniki mx-2" title="Share link on Odnoklassniki">
-                            <i class="socicon socicon-odnoklassniki"></i>
-                        </span>
-                        <span class="btn btn-social pinterest socicon-bg-pinterest mx-2" title="Share link on Pinterest">
-                            <i class="socicon socicon-pinterest"></i>
-                        </span>
-                        <span class="btn btn-social mailru socicon-bg-mail mx-2" title="Share link on Mailru">
-                            <i class="socicon socicon-mail"></i>
-                        </span>
+                        <a class="cpy" data-clipboard-text="{{ request.build_absolute_uri }}"><span class="btn btn-social copy socicon-bg-mail mx-2" title="Copy link">
+                            <i class="socicon mbri-layers"></i>
+                        </span></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+<script>
+    var clip = new Clipboard('.cpy');
+    clip.on("success", function() {});
+    clip.on("error", function() {});
+</script>
 {% endblock content %}
